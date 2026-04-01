@@ -99,16 +99,28 @@ export default function App() {
             <h2>Total: ₹{total}</h2>
 
             <h3>Scan & Pay</h3>
-            <img
-              src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=yourupi@bank&pn=JerseyX&am=${total}`}
-              alt="QR"
-            />
-            <p>UPI ID: 9032572929@fam</p>
+            {/* Build a correct UPI intent and encode it for QR */}
+            {(() => {
+              const upiId = "9032572929@fam"; // 🔴 replace with your real UPI ID
+              const payeeName = "JerseyX";
+              const amount = (total || 0).toFixed(2);
+              const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
+              const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(upiUrl)}`;
+              return (
+                <>
+                  <img src={qrUrl} alt="UPI QR" />
+                  <p>UPI ID: {upiId}</p>
+                  <a href={upiUrl} style={{color:'#fff', textDecoration:'underline'}}>
+                    Or tap to pay via UPI app
+                  </a>
+                </>
+              );
+            })()}
           </div>
         </div>
       )}
 
-      <footer className="footer">© 2026 JerseyX</footer>
+      <footer className="footer">© 2026 Jersey</footer>
     </div>
   );
 }
