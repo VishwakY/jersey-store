@@ -9,7 +9,7 @@ export default function App() {
   // Order form state
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const [screenshot, setScreenshot] = useState(null);
+  const [screenshot, setScreenshot] = useState(null); // used in order submission
 
   const products = [
     { id: 1, name: "India Cricket Jersey", price: 1499, img: "https://via.placeholder.com/300", desc: "Premium quality jersey" },
@@ -85,7 +85,13 @@ export default function App() {
             <h3>Upload Payment Screenshot</h3>
             <input type="file" onChange={(e) => setScreenshot(e.target.files[0])} />
 
-            <button onClick={() => alert("Order Placed Successfully!")}>Place Order</button>
+            <button onClick={() => {
+              if (!name || !address || !screenshot) {
+                alert("Please fill all details and upload payment screenshot");
+                return;
+              }
+              alert("Order Placed Successfully!");
+            }}>Place Order</button>
           </div>
 
           <div className="checkout-right">
@@ -101,7 +107,7 @@ export default function App() {
             <h3>Scan & Pay</h3>
             {/* Build a correct UPI intent and encode it for QR */}
             {(() => {
-              const upiId = "9032572929@fam"; // 🔴 replace with your real UPI ID
+              const upiId = "yourupi@bank"; // 🔴 replace with your real UPI ID
               const payeeName = "JerseyX";
               const amount = (total || 0).toFixed(2);
               const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
