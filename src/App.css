@@ -1,106 +1,52 @@
-/* ================= CSS (App.css) ================= */
+/* ================= CSS ================= */
 
-/* Add this to App.css */
-
-/* body */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
+  font-family: Arial;
+  background: black;
+  color: white;
 }
 
-/* navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background: #000;
-  border-bottom: 1px solid #222;
 }
 
-.navbar button {
-  background: none;
-  border: none;
-  color: white;
-  margin: 0 10px;
-  cursor: pointer;
-}
-
-.logo {
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-/* hero */
 .hero {
   text-align: center;
-  padding: 100px 20px;
+  padding: 100px;
 }
 
-.hero h2 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.hero button {
-  padding: 12px 25px;
-  background: white;
-  color: black;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
 }
 
 .card {
   background: #111;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.card button {
-  margin-top: 10px;
   padding: 10px;
-  background: white;
-  color: black;
-  border: none;
   cursor: pointer;
 }
 
-/* cart */
+.product-page {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+}
+
+.size-select {
+  padding: 10px;
+  margin: 10px 0;
+}
+
 .container {
   padding: 20px;
 }
 
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
-
-/* footer */
 .footer {
   text-align: center;
   padding: 20px;
-  border-top: 1px solid #222;
-  margin-top: 20px;
 }
