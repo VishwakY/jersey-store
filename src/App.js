@@ -6,6 +6,11 @@ export default function App() {
   const [cart, setCart] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  // Order form state
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [screenshot, setScreenshot] = useState(null);
+
   const products = [
     { id: 1, name: "India Cricket Jersey", price: 1499, img: "https://via.placeholder.com/300", desc: "Premium quality jersey" },
     { id: 2, name: "Real Madrid Jersey", price: 1999, img: "https://via.placeholder.com/300", desc: "Elite performance wear" },
@@ -47,10 +52,10 @@ export default function App() {
         </div>
       )}
 
-      {/* PRODUCT PAGE */}
+      {/* PRODUCT */}
       {page === "product" && selectedProduct && (
         <div className="product-page">
-          <img src={selectedProduct.img} />
+          <img src={selectedProduct.img} alt="" />
           <div>
             <h2>{selectedProduct.name}</h2>
             <p>{selectedProduct.desc}</p>
@@ -71,23 +76,35 @@ export default function App() {
 
       {/* CART */}
       {page === "cart" && (
-        <div className="container">
-          <h2>Your Cart</h2>
-          {cart.map((item, i) => (
-            <div key={i} className="cart-item">
-              <span>{item.name}</span>
-              <span>₹{item.price}</span>
-            </div>
-          ))}
-          <h3>Total: ₹{total}</h3>
+        <div className="checkout">
+          <div className="checkout-left">
+            <h2>Checkout</h2>
+            <input placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} />
+            <textarea placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
 
-          <button
-            onClick={() => {
-              alert("Payment Successful (Demo)");
-            }}
-          >
-            Pay Now
-          </button>
+            <h3>Upload Payment Screenshot</h3>
+            <input type="file" onChange={(e) => setScreenshot(e.target.files[0])} />
+
+            <button onClick={() => alert("Order Placed Successfully!")}>Place Order</button>
+          </div>
+
+          <div className="checkout-right">
+            <h3>Order Summary</h3>
+            {cart.map((item, i) => (
+              <div key={i} className="cart-item">
+                <span>{item.name}</span>
+                <span>₹{item.price}</span>
+              </div>
+            ))}
+            <h2>Total: ₹{total}</h2>
+
+            <h3>Scan & Pay</h3>
+            <img
+              src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=yourupi@bank&pn=JerseyX&am=${total}`}
+              alt="QR"
+            />
+            <p>UPI ID: 9032572929@fam</p>
+          </div>
         </div>
       )}
 
