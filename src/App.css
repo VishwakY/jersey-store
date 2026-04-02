@@ -1,105 +1,493 @@
+/* App.css is now a pure stylesheet. HTML moved to App.html */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ================= PREMIUM CSS ================= */
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f2eb;
+    --saffron: #FF9933;
+    --green: #138808;
+    --navy: #000080;
+    --cream: #fdf8ef;
+    --accent-gold: #e8c84a;
+    --accent-orange: #ff6b1a;
+  }
 
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #000;
-  color: #fff;
-}
+  html { font-size: 16px; scroll-behavior: smooth; }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  border-bottom: 1px solid #222;
-}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
 
-.navbar button {
-  background: none;
-  border: none;
-  color: white;
-  margin: 0 10px;
-  cursor: pointer;
-}
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,153,51,0.15);
+  }
+  .logo {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.9rem;
+    letter-spacing: 0.04em;
+    background: linear-gradient(90deg, var(--saffron), var(--accent-gold));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(245,242,235,0.7);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--saffron); }
+  .nav-cta {
+    background: var(--saffron);
+    color: var(--black);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--accent-gold); transform: translateY(-1px); }
 
-.hero {
-  text-align: center;
-  padding: 120px 20px;
-}
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 5% 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255,153,51,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 30% 80%, rgba(19,136,8,0.06) 0%, transparent 60%),
+      var(--black);
+  }
+  .hero-stripe {
+    position: absolute; top: 0; right: 0; width: 50%; height: 100%;
+    background: repeating-linear-gradient(
+      -15deg,
+      transparent, transparent 38px,
+      rgba(255,153,51,0.025) 38px, rgba(255,153,51,0.025) 40px
+    );
+    z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem; height: 2px;
+    background: var(--saffron);
+  }
+  .hero-h1 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-h1 .line1 { display: block; color: var(--white); }
+  .hero-h1 .line2 {
+    display: block;
+    background: linear-gradient(90deg, var(--saffron) 0%, var(--accent-gold) 50%, var(--green) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(245,242,235,0.6);
+    max-width: 440px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--saffron);
+    color: var(--black);
+    padding: 1rem 2.2rem;
+    border: none; border-radius: 2px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700; font-size: 1rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent-gold); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: 1px solid rgba(245,242,235,0.3);
+    border-radius: 2px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600; font-size: 1rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--saffron); color: var(--saffron); }
 
-.hero h2 {
-  font-size: 50px;
-}
+  /* JERSEY MOCKUP */
+  .hero-visual { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
+  .jersey-showcase {
+    position: relative;
+    width: 340px; height: 400px;
+  }
+  .jersey-card {
+    position: absolute;
+    width: 200px; height: 240px;
+    border-radius: 6px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .jersey-card:hover { transform: translateY(-6px) scale(1.02); }
+  .jersey-card.main {
+    left: 70px; top: 40px;
+    background: linear-gradient(155deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border: 1px solid rgba(255,153,51,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(255,153,51,0.1);
+    z-index: 3;
+    width: 220px; height: 270px;
+  }
+  .jersey-card.card2 {
+    left: 0; top: 80px;
+    background: linear-gradient(155deg, #0d1b0d 0%, #1a3d1a 50%, #2d5a2d 100%);
+    border: 1px solid rgba(19,136,8,0.3);
+    z-index: 2; opacity: 0.85;
+    transform: rotate(-6deg);
+  }
+  .jersey-card.card3 {
+    right: 0; top: 100px;
+    background: linear-gradient(155deg, #1a0a2e 0%, #2d1060 50%, #4a1da0 100%);
+    border: 1px solid rgba(128,0,255,0.3);
+    z-index: 2; opacity: 0.85;
+    transform: rotate(6deg);
+  }
+  .jersey-svg { width: 120px; height: 130px; }
+  .jersey-tag {
+    margin-top: 0.5rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,242,235,0.5);
+  }
+  .jersey-price {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.1rem;
+    color: var(--saffron);
+    margin-top: 0.2rem;
+  }
+  .badge-new {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--saffron);
+    color: var(--black);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700; font-size: 0.65rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 2px;
+  }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 40px;
-}
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--cream);
+    color: var(--black);
+    padding: 1.5rem 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    border-top: 3px solid var(--saffron);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 2rem;
+    color: var(--black);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(10,10,10,0.55);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 
-.card {
-  background: #111;
-  padding: 15px;
-  border-radius: 10px;
-  transition: 0.3s;
-}
+  /* CATEGORIES */
+  .section { padding: 6rem 5%; }
+  .section-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--saffron); margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    margin-bottom: 3rem;
+  }
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+  .cat-card {
+    position: relative;
+    padding: 3rem 2rem;
+    background: var(--black);
+    overflow: hidden;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .cat-card:hover { background: #111; }
+  .cat-card::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--cat-color, var(--saffron));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .cat-card:hover::before { transform: scaleX(1); }
+  .cat-num {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 4rem;
+    color: rgba(255,255,255,0.04);
+    position: absolute; top: 1rem; right: 1.5rem;
+    line-height: 1;
+  }
+  .cat-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .cat-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4rem; font-weight: 700;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .cat-desc { font-size: 0.88rem; color: rgba(245,242,235,0.5); line-height: 1.6; }
+  .cat-count {
+    margin-top: 1.5rem;
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--cat-color, var(--saffron));
+  }
 
-.card:hover {
-  transform: scale(1.05);
-}
+  /* FEATURED */
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+  .product-card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .product-card:hover { border-color: rgba(255,153,51,0.4); transform: translateY(-3px); }
+  .product-card.featured { grid-row: span 2; }
+  .product-img {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .product-card.featured .product-img { height: 340px; }
+  .product-info { padding: 1.2rem; }
+  .product-sport {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--saffron); margin-bottom: 0.4rem;
+  }
+  .product-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    letter-spacing: 0.04em; margin-bottom: 0.8rem;
+  }
+  .product-footer {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .product-price {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.3rem; color: var(--saffron);
+  }
+  .product-price span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem; color: rgba(245,242,235,0.35);
+    font-weight: 300; letter-spacing: 0;
+    text-decoration: line-through; margin-left: 4px;
+  }
+  .add-btn {
+    width: 36px; height: 36px;
+    background: var(--saffron); color: var(--black);
+    border: none; border-radius: 2px;
+    font-size: 1.3rem; line-height: 1;
+    cursor: pointer; transition: background 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+  }
+  .add-btn:hover { background: var(--accent-gold); }
 
-.product-page {
-  display: flex;
-  gap: 40px;
-  padding: 40px;
-}
+  /* INDIA SECTION */
+  .india-banner {
+    margin: 0 5%;
+    padding: 4rem;
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a0900 50%, #0d0d0d 100%);
+    border: 1px solid rgba(255,153,51,0.2);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .india-banner::before {
+    content: '🇮🇳';
+    position: absolute; right: 4rem; top: 50%;
+    transform: translateY(-50%);
+    font-size: 10rem; opacity: 0.04;
+    pointer-events: none;
+  }
+  .india-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .india-sub { color: rgba(245,242,235,0.55); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
+  .price-pill {
+    display: inline-flex; align-items: baseline; gap: 0.4rem;
+    background: rgba(255,153,51,0.12);
+    border: 1px solid rgba(255,153,51,0.3);
+    border-radius: 100px;
+    padding: 0.5rem 1.2rem;
+    margin-right: 0.8rem;
+  }
+  .price-pill .price {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.5rem; color: var(--saffron);
+  }
+  .price-pill .label { font-size: 0.8rem; color: rgba(245,242,235,0.5); }
+  .india-features { display: flex; flex-direction: column; gap: 1.2rem; }
+  .india-feat {
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .feat-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: rgba(255,153,51,0.1);
+    border: 1px solid rgba(255,153,51,0.2);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .feat-text strong { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
+  .feat-text span { font-size: 0.82rem; color: rgba(245,242,235,0.45); }
 
-.checkout {
-  display: flex;
-  justify-content: space-between;
-  padding: 40px;
-}
+  /* MARQUEE */
+  .marquee-section {
+    padding: 2rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: #0d0d0d;
+  }
+  .marquee-track {
+    display: flex; gap: 3rem;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-item {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,242,235,0.2);
+    flex-shrink: 0;
+  }
+  .marquee-item.accent { color: var(--saffron); }
 
-.checkout-left {
-  width: 50%;
-}
+  /* FOOTER */
+  footer {
+    padding: 4rem 5% 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer-brand .logo { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .footer-brand p { font-size: 0.88rem; color: rgba(245,242,235,0.4); line-height: 1.7; max-width: 260px; }
+  .footer-col h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700; font-size: 0.8rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--saffron); margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a {
+    color: rgba(245,242,235,0.45);
+    text-decoration: none; font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-bottom p { font-size: 0.8rem; color: rgba(245,242,235,0.25); }
+  .india-flag { font-size: 1rem; }
 
-.checkout-left input,
-.checkout-left textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  background: #111;
-  border: none;
-  color: white;
-}
-
-.checkout-left button {
-  padding: 15px;
-  width: 100%;
-  background: white;
-  color: black;
-  border: none;
-  font-weight: bold;
-}
-
-.checkout-right {
-  width: 40%;
-  background: #111;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
-
-.footer {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid #222;
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .categories-grid { grid-template-columns: 1fr; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .product-card.featured { grid-row: span 1; }
+  .india-banner { grid-template-columns: 1fr; padding: 2.5rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
