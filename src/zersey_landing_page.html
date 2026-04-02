@@ -1,1 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Rajdhani:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'DM Sans', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .header {
+        text-align: center;
+        padding: 50px 20px;
+    }
+    .header h1 {
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 48px;
+        margin-bottom: 10px;
+        color: #222;
+    }
+    .header p {
+        font-size: 18px;
+        color: #555;
+    }
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+    </style>
+</head>
+<body>
 
+<nav>
+  <span class="logo">ZERSEY</span>
+  <ul class="nav-links">
+    <li><a href="#">Football</a></li>
+    <li><a href="#">Cricket</a></li>
+    <li><a href="#">Kabaddi</a></li>
+    <li><a href="#">All Sports</a></li>
+  </ul>
+  <button class="nav-cta" onclick="sendPrompt('I want to see more ideas for the Zersey website navigation and pages')">Shop Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Made for India · Priced for India</p>
+    <h1 class="hero-h1">
+      <span class="line1">WEAR YOUR</span>
+      <span class="line2">PASSION</span>
+    </h1>
+    <p class="hero-sub">Premium sports jerseys for every Indian fan — football, cricket, kabaddi and more. Authentic quality, prices that make sense.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="sendPrompt('What product pages and collections should Zersey have?')">Explore Collection ↗</button>
+      <button class="btn-ghost">View Lookbook</button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="jersey-showcase">
+      <!-- Card 2: Green -->
+      <div class="jersey-card card2">
+        <svg class="jersey-svg" viewBox="0 0 120 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 25 L10 55 L30 50 L30 110 L90 110 L90 50 L110 55 L100 25 L75 15 Q60 8 45 15 Z" fill="#1a4d1a" stroke="#2d8a2d" stroke-width="1.5"/>
+          <path d="M45 15 Q60 8 75 15 L85 35 Q70 30 60 32 Q50 30 35 35 Z" fill="#2d8a2d"/>
+          <text x="60" y="78" text-anchor="middle" font-family="'Black Han Sans',sans-serif" font-size="22" fill="rgba(255,255,255,0.9)">11</text>
+        </svg>
+        <span class="jersey-tag">Cricket</span>
+        <span class="jersey-price">₹799</span>
+      </div>
+
+      <!-- Card 3: Purple -->
+      <div class="jersey-card card3">
+        <svg class="jersey-svg" viewBox="0 0 120 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 25 L10 55 L30 50 L30 110 L90 110 L90 50 L110 55 L100 25 L75 15 Q60 8 45 15 Z" fill="#2d0060" stroke="#7a00cc" stroke-width="1.5"/>
+          <path d="M45 15 Q60 8 75 15 L85 35 Q70 30 60 32 Q50 30 35 35 Z" fill="#7a00cc"/>
+          <text x="60" y="78" text-anchor="middle" font-family="'Black Han Sans',sans-serif" font-size="22" fill="rgba(255,255,255,0.9)">7</text>
+        </svg>
+        <span class="jersey-tag">Football</span>
+        <span class="jersey-price">₹899</span>
+      </div>
+
+      <!-- Main card: Navy/Saffron -->
+      <div class="jersey-card main">
+        <span class="badge-new">New Drop</span>
+        <svg viewBox="0 0 120 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:145px;height:155px;">
+          <path d="M20 25 L10 55 L30 50 L30 110 L90 110 L90 50 L110 55 L100 25 L75 15 Q60 8 45 15 Z" fill="#000080" stroke="#FF9933" stroke-width="1.5"/>
+          <path d="M45 15 Q60 8 75 15 L85 35 Q70 30 60 32 Q50 30 35 35 Z" fill="#FF9933"/>
+          <line x1="30" y1="70" x2="90" y2="70" stroke="rgba(255,153,51,0.4)" stroke-width="1"/>
+          <text x="60" y="82" text-anchor="middle" font-family="'Black Han Sans',sans-serif" font-size="26" fill="#FF9933">10</text>
+        </svg>
+        <span class="jersey-tag">Team India</span>
+        <span class="jersey-price">₹1,099</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">Jersey Styles</span></div>
+  <div class="stat-item"><span class="stat-num">28</span><span class="stat-label">States Delivered</span></div>
+  <div class="stat-item"><span class="stat-num">₹499</span><span class="stat-label">Starting Price</span></div>
+  <div class="stat-item"><span class="stat-num">48hr</span><span class="stat-label">Fast Dispatch</span></div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item accent">⬥ Football</span>
+    <span class="marquee-item">⬥ Cricket</span>
+    <span class="marquee-item accent">⬥ Kabaddi</span>
+    <span class="marquee-item">⬥ Basketball</span>
+    <span class="marquee-item accent">⬥ Hockey</span>
+    <span class="marquee-item">⬥ Badminton</span>
+    <span class="marquee-item accent">⬥ Volleyball</span>
+    <span class="marquee-item">⬥ Custom Jerseys</span>
+    <span class="marquee-item accent">⬥ Football</span>
+    <span class="marquee-item">⬥ Cricket</span>
+    <span class="marquee-item accent">⬥ Kabaddi</span>
+    <span class="marquee-item">⬥ Basketball</span>
+    <span class="marquee-item accent">⬥ Hockey</span>
+    <span class="marquee-item">⬥ Badminton</span>
+    <span class="marquee-item accent">⬥ Volleyball</span>
+    <span class="marquee-item">⬥ Custom Jerseys</span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section">
+  <p class="section-label">Browse by Sport</p>
+  <h2 class="section-title">Shop Your Game</h2>
+  <div class="categories-grid">
+    <div class="cat-card" style="--cat-color: #FF9933;">
+      <span class="cat-num">01</span>
+      <div class="cat-icon">⚽</div>
+      <h3 class="cat-name">Football</h3>
+      <p class="cat-desc">Club kits, national team jerseys, and retro editions for every football fan.</p>
+      <span class="cat-count">→ 220+ styles</span>
+    </div>
+    <div class="cat-card" style="--cat-color: #138808;">
+      <span class="cat-num">02</span>
+      <div class="cat-icon">🏏</div>
+      <h3 class="cat-name">Cricket</h3>
+      <p class="cat-desc">India blues, IPL team jerseys, and state team kits. Celebrate every run.</p>
+      <span class="cat-count">→ 180+ styles</span>
+    </div>
+    <div class="cat-card" style="--cat-color: #e8c84a;">
+      <span class="cat-num">03</span>
+      <div class="cat-icon">🤼</div>
+      <h3 class="cat-name">Kabaddi</h3>
+      <p class="cat-desc">PKL team jerseys and state kabaddi federation kits — represent your raiders.</p>
+      <span class="cat-count">→ 60+ styles</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="section" style="padding-top: 0;">
+  <p class="section-label">Top Picks</p>
+  <h2 class="section-title">Featured Jerseys</h2>
+  <div class="featured-grid">
+
+    <div class="product-card featured">
+      <div class="product-img" style="background: linear-gradient(155deg, #000080, #0000cc);">
+        <svg viewBox="0 0 120 140" fill="none" style="width:150px;height:170px;">
+          <path d="M20 28 L8 62 L32 56 L32 120 L88 120 L88 56 L112 62 L100 28 L77 16 Q60 8 43 16 Z" fill="#000080" stroke="#FF9933" stroke-width="2"/>
+          <path d="M43 16 Q60 8 77 16 L86 38 Q70 32 60 34 Q50 32 34 38 Z" fill="#FF9933"/>
+          <line x1="32" y1="78" x2="88" y2="78" stroke="rgba(255,153,51,0.5)" stroke-width="1.5"/>
+          <text x="60" y="104" text-anchor="middle" font-family="'Black Han Sans',sans-serif" font-size="30" fill="#FF9933">10</text>
+        </svg>
+        <span style="position:absolute;top:12px;left:12px;background:var(--saffron);color:var(--black);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;">Bestseller</span>
+      </div>
+      <div class="product-info">
+        <p class="product-sport">Football · National</p>
+        <p class="product-name">India Home Kit 2024 — Navy</p>
+        <div class="product-footer">
+          <p class="product-price">₹1,099 <span>₹1,699</span></p>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(155deg, #0d1b0d, #2d5a2d);">
+        <svg viewBox="0 0 120 140" fill="none" style="width:110px;height:120px;">
+          <path d="M20 28 L8 62 L32 56 L32 120 L88 120 L88 56 L112 62 L100 28 L77 16 Q60 8 43 16 Z" fill="#1a4d1a" stroke="#4CAF50" stroke-width="2"/>
+          <path d="M43 16 Q60 8 77 16 L86 38 Q70 32 60 34 Q50 32 34 38 Z" fill="#4CAF50"/>
+          <text x="60" y="88" text-anchor="middle" font-family="'Black Han Sans',sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">7</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-sport">Cricket · IPL</p>
+        <p class="product-name">CSK Home Jersey</p>
+        <div class="product-footer">
+          <p class="product-price">₹799 <span>₹1,199</span></p>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(155deg, #1a0030, #4a1da0);">
+        <svg viewBox="0 0 120 140" fill="none" style="width:110px;height:120px;">
+          <path d="M20 28 L8 62 L32 56 L32 120 L88 120 L88 56 L112 62 L100 28 L77 16 Q60 8 43 16 Z" fill="#2d0060" stroke="#9b59b6" stroke-width="2"/>
+          <path d="M43 16 Q60 8 77 16 L86 38 Q70 32 60 34 Q50 32 34 38 Z" fill="#9b59b6"/>
+          <text x="60" y="88" text-anchor="middle" font-family="'Black Han Sans',sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">1</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-sport">Kabaddi · PKL</p>
+        <p class="product-name">U Mumba Away Kit</p>
+        <div class="product-footer">
+          <p class="product-price">₹699 <span>₹999</span></p>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(155deg, #1a0a00, #6b2800);">
+        <svg viewBox="0 0 120 140" fill="none" style="width:110px;height:120px;">
+          <path d="M20 28 L8 62 L32 56 L32 120 L88 120 L88 56 L112 62 L100 28 L77 16 Q60 8 43 16 Z" fill="#6b2800" stroke="#FF9933" stroke-width="2"/>
+          <path d="M43 16 Q60 8 77 16 L86 38 Q70 32 60 34 Q50 32 34 38 Z" fill="#FF9933"/>
+          <text x="60" y="88" text-anchor="middle" font-family="'Black Han Sans',sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">23</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-sport">Football · Club</p>
+        <p class="product-name">Mumbai City FC 24/25</p>
+        <div class="product-footer">
+          <p class="product-price">₹899 <span>₹1,399</span></p>
+          <button class="add-btn">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INDIA BANNER -->
+<div class="india-banner">
+  <div>
+    <p class="section-label" style="margin-bottom:0.6rem;">Why Zersey?</p>
+    <h2 class="india-title">Built for the Indian <span style="color:var(--saffron);">Sports Fan</span></h2>
+    <p class="india-sub">We know how much Indian fans love their sport. We built Zersey so you can wear that love without paying import prices.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.8rem;margin-bottom:2rem;">
+      <div class="price-pill"><span class="price">₹499</span><span class="label">jerseys start from</span></div>
+      <div class="price-pill"><span class="price">Free</span><span class="label">shipping ₹999+</span></div>
+    </div>
+    <button class="btn-primary" onclick="sendPrompt('What should Zersey add to convert more Indian buyers?')">See All Deals ↗</button>
+  </div>
+  <div class="india-features">
+    <div class="india-feat">
+      <div class="feat-icon">🇮🇳</div>
+      <div class="feat-text">
+        <strong>Pan-India Delivery</strong>
+        <span>All 28 states & 8 UTs covered. Tier-2 and tier-3 cities welcome.</span>
+      </div>
+    </div>
+    <div class="india-feat">
+      <div class="feat-icon">🎽</div>
+      <div class="feat-text">
+        <strong>Custom Name & Number</strong>
+        <span>Get your name printed on any jersey for just ₹99 extra.</span>
+      </div>
+    </div>
+    <div class="india-feat">
+      <div class="feat-icon">🔄</div>
+      <div class="feat-text">
+        <strong>7-Day Easy Returns</strong>
+        <span>Wrong size? No problem. Free exchanges, no questions asked.</span>
+      </div>
+    </div>
+    <div class="india-feat">
+      <div class="feat-icon">💳</div>
+      <div class="feat-text">
+        <strong>UPI · COD · Cards</strong>
+        <span>Pay how you want — GPay, PhonePe, Paytm, or cash on delivery.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">ZERSEY</span>
+      <p>Premium sports jerseys for Indian fans. Football, cricket, kabaddi and more — at prices that make sense.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Football</a></li>
+        <li><a href="#">Cricket</a></li>
+        <li><a href="#">Kabaddi</a></li>
+        <li><a href="#">Basketball</a></li>
+        <li><a href="#">New Arrivals</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Zersey</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Zersey · Made with ❤️ for India <span class="india-flag">🇮🇳</span></p>
+    <p style="font-size:0.78rem;color:rgba(245,242,235,0.2);">Zersey is not affiliated with any official sports federation or club.</p>
+  </div>
+</footer>

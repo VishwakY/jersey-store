@@ -125,8 +125,6 @@ export default function App() {
           </div>
         </div>
       )}
-
-      <footer className="footer">© 2026 Jersey</footer>
     </div>
   );
 }
